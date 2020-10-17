@@ -11,16 +11,12 @@ app.get('/', (req, res)=>{
     res.render('index.ejs')
 })
 
-app.use('/loveit', require('./controllers/loveit'))
+const loveIt = require('./controllers/loveit');
+const leaveIt = require('./controllers/leaveit')
 
+app.use('/loveit', loveIt)
+app.use('/leaveit', leaveIt)
 
-app.get('/leaveit/movies', (req, res)=>{
-    res.render('movies.ejs', {movies:['Mean Girls 2', 'Bring It On 3']})
-})
-
-app.get('/leaveit/products', (req, res)=>{
-    res.render('products.ejs', {products:['squatty potty', 'bacon soda']})
-})
 
 app.listen(8000, ()=>{
     console.log("layoutssssss at 8000")
